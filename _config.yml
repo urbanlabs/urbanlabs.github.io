@@ -1,18 +1,19 @@
 # Site settings
 title: UrbanLabs LLC
+tagline: "Technical Solutions to Urban Problems"
 email: easall@gmail.com
 url: http://http://127.0.0.1:4000
 description:  "Technical Solutions to Urban Problems"
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: 18bc9c #80B3FF
-  secondary: 2c3e50 #FD6E8A
+  primary: 00a855
+  secondary: 2c3e50
   secondary-dark: 233140 #A2122F
   
 # Footer settings
 footer:
-  copyright: Dr. Henry Jekyll
+  copyright: UrbanLabs LLC
   location: Location
   social: Around the Web
   credits: Credits
@@ -20,23 +21,20 @@ footer:
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: twitter
-    url: http://twitter.com/jekyllrb
-  - title: facebook
-    url:
-  - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket 
-    url: http://bitbucket.org/jekyll
+    url: http://twitter.com/e_lo
   - title: github
-    url: http://github.com/jekyll
+    url: http://github.com/e-lo
+  - title: linkedin
+    url: http://www.linkedin.com/pub/elizabeth-sall
+  - title: google-plus
+    url: http://plus.google.com/+ESall
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+  - line: Seattle | Washington | USA
   
 # Credits content
-credits: 'Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: '<a href="http://startbootstrap.com">Freelance Bootstrap Theme</a>'
 
 # Build settings
 markdown: kramdown
