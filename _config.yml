@@ -1,7 +1,7 @@
 # Site settings
 title: UrbanLabs LLC
 email: easall@gmail.com
-url: http://urbanlabs.io
+url: http://http://127.0.0.1:4000
 description:  "Technical Solutions to Urban Problems"
 
 # Color settings (hex-codes without the leading hash-tag)
