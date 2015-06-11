@@ -2,15 +2,15 @@
 title: UrbanLabs LLC
 tagline: "Technical Solutions to Urban Problems"
 email: easall@gmail.com
-url: http://http://127.0.0.1:4000
+url: http://urbanlabs.io
 description:  "Technical Solutions to Urban Problems"
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
   primary: 00a855
   secondary: 2c3e50
-  secondary-dark: 233140 #A2122F
-  
+  light: 507292
+
 # Footer settings
 footer:
   copyright: UrbanLabs LLC
@@ -34,7 +34,7 @@ address:
   - line: Seattle | Washington | USA
   
 # Credits content
-credits: '<a href="http://startbootstrap.com">Freelance Bootstrap Theme</a>'
+credits: 'Very loosely based on <a href="http://startbootstrap.com">Freelance Bootstrap Theme</a>'
 
 # Build settings
 markdown: kramdown
