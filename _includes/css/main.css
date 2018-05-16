@@ -346,6 +346,24 @@ section.success {
     background: #fff;
 }
 
+.white-btn-outline {
+    margin-top: 15px;
+    border: solid 2px #2c3e50;
+    font-size: 20px;
+    color: #2c3e50;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
+
+.white-btn-outline:hover,
+.white-btn-outline:focus,
+.white-btn-outline:active,
+.white-btn-outline.active {
+    border: solid 2px #2c3e50;
+    color: #{{ site.color.primary }};
+    background: #2c3e50;
+}
+
 .floating-label-form-group {
     position: relative;
     margin-bottom: 0;
@@ -424,6 +442,8 @@ footer .footer-below {
     background-color: #{{ site.color.secondary-dark }};
 }
 
+
+
 .btn-social {
     display: inline-block;
     width: 50px;
@@ -439,6 +459,10 @@ footer .footer-below {
 .btn:active,
 .btn.active {
     outline: 0;
+}
+
+.btn-whiteback {
+    border: 2px solid #2c3e50;
 }
 
 .scroll-top {
@@ -461,5 +485,3 @@ footer .footer-below {
 .scroll-top .btn:focus {
     outline: 0;
 }
-
-

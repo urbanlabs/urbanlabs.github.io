@@ -1,9 +1,9 @@
 # Site settings
 title: UrbanLabs LLC
-tagline: "Technical Solutions to Urban Problems"
+tagline: "People. Places. Planet."
 email: easall@gmail.com
 url: http://urbanlabs.io
-description:  "Technical Solutions to Urban Problems"
+description:  "People. Places. Planet."
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
@@ -21,18 +21,18 @@ footer:
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: twitter
-    url: http://twitter.com/e_lo
+    url: http://twitter.com/urbanlabsllc
   - title: github
-    url: http://github.com/e-lo
+    url: https://github.com/urbanlabs
   - title: linkedin
-    url: http://www.linkedin.com/pub/elizabeth-sall
-  - title: google-plus
-    url: http://plus.google.com/+ESall
+    url: https://www.linkedin.com/company/urbanlabs-llc/
+
+include: ["team"]
 
 # Postal address (add as many lines as necessary)
 address:
   - line: Seattle | Washington | USA
-  
+
 # Credits content
 credits: 'Very loosely based on <a href="http://startbootstrap.com">Freelance Bootstrap Theme</a>'
 

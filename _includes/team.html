@@ -8,21 +8,19 @@
                 </div>
             </div>
 
-            {% for person in site.data.team %}
+            {% for person in site.data.team.people %}
             <div class="row">
                 <div class="col-lg-5">
                   <div class="row">
-                    <div class="col-lg-2">
-                      <img class="img-responsive" src={{ person.photo }} alt="">
-                    </div>
-                    <div class="col-lg-3">
-                      <h2 ><a href="https://www.linkedin.com/in/elizabeth-sall-207a851">{{ person.name }}</a></h2>
-                    </div>
+                      <h2 ><a href={{ site.baseurl }}/team/{{ person.name }}>{{ person.name }}</a></h2>
+                      <h5 >>> {{ person.title }}</h5>
+                      <br>
+                      <img class="img-responsive " src={{ person.photo }} alt="" width="200px">
                   </div>
               </div>
               <div class="row col-lg-7">
                     <p>{{ person.intro }}</p>
-                    <p>{{ person.service }}</p>
+                    <p>{{ person.service-intro }}</p>
               </div>
             </div>
             {% endfor %}

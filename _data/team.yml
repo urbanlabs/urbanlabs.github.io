@@ -1,39 +1,147 @@
+people:
 - name: Elizabeth
-  intro: Elizabeth Sall is outgoing Deputy Director for Technology Services for the San Francisco County Transportation Authority 
-         and current free-thinker and do-er. She is excited to have the opportunity to share what she has learned from her combined 
-         experiences in software development, urban data analysis, public-sector management, and policy development with a variety of 
-         clients and needs. 
-  photo: img/team/elo.jpg
+  last-name: Sall
+  social:
+    - name: medium
+      link: https://medium.com/@e_lo
+    - name: github
+      link: http://github.com/e-lo
+    - name: twitter
+      link: http://twitter.com/e_lo
+    - name: linkedin
+      link: https://www.linkedin.com/in/elizabeth-sall-207a851/
+  title: Principal
+  intro: Elizabeth Sall loves making civic processes function better based on her combined
+         experiences in software development, urban data analytics, data standards management and governance, public-sector management, and policy development with a variety of
+         clients and needs.  As a former public sector leader, she understands the day-to-day demands and realities of working in government and
+         the challenges that make it difficult to innovate in order to provide a better user experience to the public.
+  photo: img/team/elo.png
   linkedin: https://www.linkedin.com/in/elizabeth-sall-207a851
-  service: Elizabeth complements her professional life with a variety of efforts related to international and local conservation, 
-           poverty alleviation, and global health (and particularly where these issues intersect) through vehicles such as impact 
-           investing, social entrepreneurship, board service on several organizations and connecting some dots where they need connecting. 
+  google-scholar: https://scholar.google.com/citations?user=2lCJrlIAAAAJ&hl=en
+  service-intro: Elizabeth complements her professional life with a variety of efforts related to international and local conservation,
+           poverty alleviation, and global health (and particularly where these issues intersect) through vehicles such as impact
+           investing, social entrepreneurship, board service on several organizations and connecting some dots where they need connecting.
            She has a particular passion for empowering local communities to affect (and hopefully control) their own destiny.
   skills:
-    - category: Software dev
-      about: Python, Agile Development, GitHub Flow, Pivotal, and functional (as in I can stumble through it okay) although not in-depth 
+    - category: Software Development
+      id: 1
+      about: Python, Agile Development, GitHub Flow, Pivotal, and functional (as in I can stumble through it okay) although not in-depth
              knowledge of AWS, Heroku, C++, HTML, javascript/jQuery, node.js
-    - category: Data analysis software
+    - category: Data Analysis Software
+      id: 2
       about: Python/Pandas, R, JMP, SAS, SPSS/PSPP, open-source, ESRI and OS GIS
     - category: Data Mucking & Analysis Techniques
-      about: Locational data processing, discrete choices models, network analysis, route choice models, language processing, 
+      id: 3
+      about: Locational data processing, discrete choices models, network analysis, route choice models, language processing,
                  regression, cluster analysis, & social network analysis.
-    - category: Data sources
-      about: transit vehicle (APC and AVL), personal location (GPS, cell phone, bluetooth), network (road, transit, bike, 
+    - category: Data Sources
+      id: 4
+      about: transit vehicle (APC and AVL), personal location (GPS, cell phone, bluetooth), network (road, transit, bike,
              pedestrian such as GTFS, OSM, and proprietary), & surveys (on-board transit, household travel surveys, census).
               Started collecting data via smartphones back in 2009 with Cycle Tracks.
-    - category: Urban behavior and policies
-      about: Extensive experience in policy-sensitive analysis of issues related to congested urban systems such as transit crowding, 
-             transit reliability, congested traffic flow, pedestrian travel choices, bicycle travel choices, parking choice, 
+    - category: Urban Behavior and Policies
+      id: 5
+      about: Extensive experience in policy-sensitive analysis of issues related to congested urban systems such as transit crowding,
+             transit reliability, congested traffic flow, pedestrian travel choices, bicycle travel choices, parking choice,
              active transportation, GHG emissions, transportation equity & travel demand management strategies.
-    - category: Project management
+    - category: Project Management
+      id: 6
       about: research projects, planning studies, & policy analyses
     - category: Strategic planning for analysis teams
+      id: 7
       about: Peer reviews, budgets, toolbox building, data standards, software selection, QA/QC procedures & skill-building.
     - category: Research
-      about: developed research agendas, ongoing relationships with a variety of researchers at a multitude of universities, 
+      id: 8
+      about: developed research agendas, ongoing relationships with a variety of researchers at a multitude of universities,
              technical advisory committee chair and panel member overseeing research projects, founder of ResearcHQ.org,
               extensive peer-reviewed publications and publication review experience, & frequent advice-giver.
     - category: Outreach and Education
+      id: 9
       about: Frequent lecturer and presenter at universities, conferences, & professional organizations
-      
+  education:
+    - degree: M.S. in Civil Engineering
+      year: 2004
+      id: 1
+      institution: University of Texas at Austin
+      description: Advisor – Chandra Bhat. Focused coursework on travel forecasting, public transit planning, and sustainable urban economic development.
+    - degree: B.S. in Civil Engineering
+      year: 2003
+      id: 2
+      institution: North Carolina State University
+      description: Undergraduate research focused on transportation systems and mixed use devleopment
+                   with underclassman coursework and research in genomics with Dr. Greg Gibson.
+                   Active in professional organizations (ASCE Concrete Canoe Team and webmaster, ITE),
+                   student government (Engineer's Council, Student Union Board, Campus Arts Committee, University Standing Committee on the Physical Environment, Traditions Commission, community organizing) and
+                   NCSU Dance Company.
+  employment:
+    - institution: UrbanLabs LLC
+      id: 1
+      link: http://urbanlabs.io
+      years: 2015-present
+      title: Principal
+    - institution: San Francisco County Transportation Authority
+      id: 2
+      years: 2012-2015
+      title: Deputy Director for Technology, Data + Analysis
+    - institution: San Francisco County Transportation Authority
+      id: 3
+      link: http://www.sfcta.org
+      years: 2013-2014
+      title: Interim Deputy Director for Planning
+    - institution: San Francisco County Transportation Authority
+      id: 4
+      link: http://www.sfcta.org
+      years: 2008-2012
+      title: Senior and Principal Transportation Planner
+    - institution: Cambridge Systematics
+      id: 5
+      link: http://www.camsys.com
+      years: 2005-2008
+      title: Associate in Travel Demand Forecasting
+  publications:
+    - title: "Making open transportation data useful and accessible: recommendations for good practices in open data standards management."
+      link: http://fast-trips.mtc.ca.gov/library/TRB17-OpenData.pdf
+      id: 1
+    - title: "Dynamic Passenger Assignment Challenges."
+      link: http://fast-trips.mtc.ca.gov/library/TRB17-Issues.pdf
+      id: 2
+  service:
+    - institution: Zephyr Foundation
+      link: http://zephyrtransport.org
+      id: 1
+      role: Co-founder
+    - institution: Transportation Research Board
+      link: http://www.trb.org
+      id: 2
+      role: Committee Member, ADB50 and ADB45. Transportation Research Record Advisory Board member.
+            Research coordinator for ADB50.
+            Organizing Committee for Innovations in Travel Modeling Conference (2006-2016).
+            Organizing Committee for Conference on Planning Applications (2009-present).
+    - institution: Rocky Mountain Institute
+      link: http://www.rmi.org
+      id: 3
+      role: Current board member.
+    - institution: National Cooperative Highway Research Program
+      link: http://www.trb.org/NCHRP/NCHRP.aspx
+      id: 4
+      role: Panel chair SHRP2 C46. Panel member NCHRP 08-89.
+    - institution: Institute of Transportation Engineers
+      link: http://www.ite.org
+      id: 5
+      role: Former board member (Washington Area Director) in Washington DC Region.
+    - institution: Technical Advisory Committees
+      id: 6
+      role: Various projects for Caltrans, FTA, UC Davis, GTFS-Ride etc.
+    - institution: Interoperable Transit Data Consortium
+      link: https://itdconsortium.org/
+      id: 7
+      role: Affiliate.
+  presentations:
+    - title: "Technology Transfer in Government. Who has the torch?"
+      venue: PacTrans Conference. Seattle, WA. 2017.
+      link: https://drive.google.com/open?id=1dg06yPz_Xa0WLm8Uma70EE2Aj5ZEQngqqtPgs7SjOM4
+      id: 1
+    - title: "Transit Network Version Control. A Plea."
+      venue: Interoperable Transit Data Consortium. New York, NY. October 2017
+      link: https://docs.google.com/presentation/d/1ZCO2Zlsz5FD_scvgwVMlSxsAKtEidjc9d0bV41VcGnw/edit?usp=drive_web
+      id: 2

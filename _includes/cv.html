@@ -1,0 +1,179 @@
+{% for person in site.data.team.people %}
+    {% if person.name == page.teammate %}
+        {% assign p = person %}
+    {% endif %}
+{% endfor %}
+
+
+    <!-- clients Grid Section -->
+<section id="cv">
+    <div class="container">
+    <div class="row text-center">
+           <div class="col-md-2">
+             <img class="img-responsive" src={{site.url}}/{{ p.photo }} alt="" width="200px">
+             <ul class="list-inline">
+              {% for network in p.social %}
+              <li>
+                  <a href="{{ network.link }}" class="btn-social btn-whiteback white-btn-outline"><i class="fa fa-fw fa-{{ network.name }}"></i></a>
+              </li>
+              {% endfor %}
+              </ul>
+           </div>
+           <div class="col-md-10">
+           <h2 id="teammate">{{ p.name }} {{ p.last-name }}
+              </h2>
+              <div class="row">
+
+              <div class="col-lg-12 text-left">
+                <h4>Employment</h4>
+                <hr>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                {% for e in p.employment %}
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="heading-employment-{{e.id}}">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-employment-{{e.id}}" aria-expanded="false" aria-controls="collapse-employment-{{e.id}}">
+                        <h4>{{ e.years}}: {{ e.title }}</h4>
+                      </a>
+                        <h6>
+                          <a href={{ e.link }} style="color: gray;">{{ e.institution }}</a>
+                        </h6>
+
+                    </h4>
+                  </div>
+                  <div id="collapse-employment-{{e.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-employment-{{e.id}}">
+                    <div class="panel-body">
+                      {{ e.about }}
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+                </div>
+
+                <h4>Skills</h4>
+                <hr>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                {% for s in p.skills %}
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="heading-skill-{{s.id}}">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-skill-{{s.id}}" aria-expanded="false" aria-controls="collapse-skill-{{s.id}}">
+                        {{ s.category }}
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapse-skill-{{s.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-skill-{{s.id}}">
+                    <div class="panel-body">
+                      {{ s.about }}
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+                </div>
+
+
+                <h4>Recent Publications</h4>
+                <hr>
+                <p>For a full list of publications, please visit <a style="color:gray;" href={{ p.google-scholar }}> this Google Scholar Page</a>.</p>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                {% for pub in p.publications %}
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="heading-pubs-{{pub.id}}">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-pubs-{{pub.id}}" aria-expanded="false" aria-controls="collapse-pubs-{{pub.id}}">
+                        <h4>{{ pub.title }}</h4>
+                      </a>
+                        <h6>
+                          <a href={{ pub.link }} style="color: gray;">>> Full Text</a>
+                        </h6>
+
+                    </h4>
+                  </div>
+                  <div id="collapse-pubs-{{pub.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-pubs-{{pub.id}}">
+                    <div class="panel-body">
+                      {{ pub.abstract }}
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+
+              <h4>Recent Presentations</h4>
+              <hr>
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              {% for pres in p.presentations %}
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading-pres-{{pres.id}}">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-pres-{{pres.id}}" aria-expanded="false" aria-controls="collapse-pubs-{{pub.id}}">
+                      <h4>{{ pres.title }}</h4>
+                      <h6>{{ pres.venue }}</h6>
+                    </a>
+                      <h6>
+                        <a href={{ pres.link }} style="color: gray;">>> Slides</a>
+                      </h6>
+
+                  </h4>
+                </div>
+                <div id="collapse-pres-{{pres.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-pres-{{pres.id}}">
+                  <div class="panel-body">
+                    {{ pres.abstract }}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              </div>
+
+              <h4>Professional Service</h4>
+              <hr>
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              {% for s in p.service %}
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading-ser-{{s.id}}">
+                  <h4 class="panel-title">
+                      <a href={{ s.link }}>{{ s.institution }}</a>
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-ser-{{s.id}}" aria-expanded="false" aria-controls="collapse-ser-{{s.id}}">
+                      <h6>>> Read more</h6>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapse-ser-{{s.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-ser-{{s.id}}">
+                  <div class="panel-body">
+                    {{ s.role }}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+            <h4>Education</h4>
+            <hr>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            {% for ed in p.education %}
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading-ed-{{ed.id}}">
+                <h4 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-ed-{{ed.id}}" aria-expanded="false" aria-controls="collapse-ed-{{ed.id}}">
+                    {{ ed.year }} – {{ ed.degree }}
+                    <h5>{{ ed.institution }}</h5>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapse-ed-{{ed.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-ed-{{ed.id}}">
+                <div class="panel-body">
+                  {{ ed.description }}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            </div>
+
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.col-lg-10 -->
+            </div>
+    </div>
+    </div>
+</section>
