@@ -342,7 +342,7 @@ section.success {
 .btn-outline:active,
 .btn-outline.active {
     border: solid 2px #fff;
-    color: #{{ site.color.primary }};
+    color: #00a855;
     background: #fff;
 }
 
@@ -360,7 +360,7 @@ section.success {
 .white-btn-outline:active,
 .white-btn-outline.active {
     border: solid 2px #2c3e50;
-    color: #{{ site.color.primary }};
+    color: #00a855;
     background: #2c3e50;
 }
 
