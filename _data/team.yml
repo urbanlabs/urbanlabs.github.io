@@ -109,7 +109,7 @@ people:
     - institution: Zephyr Foundation
       link: http://zephyrtransport.org
       id: 1
-      role: Co-founder
+      role: Co-founder; Workforce Development Committee.
     - institution: Transportation Research Board
       link: http://www.trb.org
       id: 2
@@ -120,21 +120,29 @@ people:
     - institution: Rocky Mountain Institute
       link: http://www.rmi.org
       id: 3
-      role: Current board member.
+      role: Trustee.
+    - institution: California Integrated Travel Project 
+      link: http://www.californiaintegratedtravel.com/
+      id: 4
+      role: Steering Committee Member
+    - institution: University of Texas at Austin – Planet Texas 2050
+      link: https://bridgingbarriers.utexas.edu/
+      id: 5
+      role: Planet Texas 2050 Technical Advisory Council
     - institution: National Cooperative Highway Research Program
       link: http://www.trb.org/NCHRP/NCHRP.aspx
-      id: 4
+      id: 6
       role: Panel chair SHRP2 C46. Panel member NCHRP 08-89.
     - institution: Institute of Transportation Engineers
       link: http://www.ite.org
-      id: 5
+      id: 7
       role: Former board member (Washington Area Director) in Washington DC Region.
     - institution: Technical Advisory Committees
-      id: 6
+      id: 8
       role: Various projects for Caltrans, FTA, UC Davis, GTFS-Ride etc.
     - institution: Interoperable Transit Data Consortium
       link: https://itdconsortium.org/
-      id: 7
+      id: 9
       role: Affiliate.
   presentations:
     - title: "Technology Transfer in Government. Who has the torch?"
