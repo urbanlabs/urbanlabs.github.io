@@ -25,39 +25,41 @@ people:
   skills:
     - category: Software Development
       id: 1
-      about: Python, Agile Development, GitHub Flow, Pivotal, and functional (as in I can stumble through it okay) although not in-depth
-             knowledge of AWS, Heroku, C++, HTML, javascript/jQuery, node.js
+      about: Python/Pandas, Agile Development and GitHub, Docker, Jupyter, Travis CI and functional knowledge of AWS, Heroku, C++, HTML, javascript/jQuery/node.js, Jekyll, interactive graphics using Bokeh and D3, and web-based mapping using leaflet and Mapbox.
     - category: Data Analysis Software
       id: 2
       about: Python/Pandas, R, JMP, SAS, SPSS/PSPP, open-source, ESRI and OS GIS
-    - category: Data Mucking & Analysis Techniques
+    - category: Transit Data
       id: 3
+      about: Develop, manage, maintain transit data standards and facilitate transit data quality in production.
+    - category: Data Mucking & Analysis Techniques
+      id: 4
       about: Locational data processing, discrete choices models, network analysis, route choice models, language processing,
                  regression, cluster analysis, & social network analysis.
     - category: Data Sources
-      id: 4
-      about: transit vehicle (APC and AVL), personal location (GPS, cell phone, bluetooth), network (road, transit, bike,
+      id: 5
+      about: Transit vehicle (APC and AVL), personal location (GPS, cell phone, bluetooth), network (road, transit, bike,
              pedestrian such as GTFS, OSM, and proprietary), & surveys (on-board transit, household travel surveys, census).
               Started collecting data via smartphones back in 2009 with Cycle Tracks.
     - category: Urban Behavior and Policies
-      id: 5
+      id: 6
       about: Extensive experience in policy-sensitive analysis of issues related to congested urban systems such as transit crowding,
              transit reliability, congested traffic flow, pedestrian travel choices, bicycle travel choices, parking choice,
              active transportation, GHG emissions, transportation equity & travel demand management strategies.
     - category: Project Management
-      id: 6
-      about: research projects, planning studies, & policy analyses
-    - category: Strategic planning for analysis teams
       id: 7
+      about: Research projects, planning studies, & policy analyses
+    - category: Strategic planning for analysis teams
+      id: 8
       about: Peer reviews, budgets, toolbox building, data standards, software selection, QA/QC procedures & skill-building.
     - category: Research
-      id: 8
-      about: developed research agendas, ongoing relationships with a variety of researchers at a multitude of universities,
+      id: 9
+      about: Developed research agendas, ongoing relationships with a variety of researchers at a multitude of universities,
              technical advisory committee chair and panel member overseeing research projects, founder of ResearcHQ.org,
               extensive peer-reviewed publications and publication review experience, & frequent advice-giver.
     - category: Outreach and Education
-      id: 9
-      about: Frequent lecturer and presenter at universities, conferences, & professional organizations
+      id: 10
+      about: Frequent lecturer and presenter at universities, conferences, & professional organizations. Develop lesson plans, tutorials, and experiential learning programs.
   education:
     - degree: M.S. in Civil Engineering
       year: 2004
@@ -113,37 +115,37 @@ people:
     - institution: Transportation Research Board
       link: http://www.trb.org
       id: 2
-      role: Committee Member, ADB50 and ADB45. Transportation Research Record Advisory Board member.
+      role: Committee Member, ADB40, ADB50 and ADB45. Transportation Research Record Advisory Board member.
             Research coordinator for ADB50.
             Organizing Committee for Innovations in Travel Modeling Conference (2006-2016).
             Organizing Committee for Conference on Planning Applications (2009-present).
+    - institution: 2019 Innovations in Travel Modeling Conference in Seattle
+      link: http://itmconference.com
+      id: 4
+      role: Conference Co-Chair
     - institution: Rocky Mountain Institute
       link: http://www.rmi.org
-      id: 3
+      id: 5
       role: Trustee.
     - institution: California Integrated Travel Project 
       link: http://www.californiaintegratedtravel.com/
-      id: 4
-      role: Steering Committee Member
+      id: 6
+      role: Steering Committee Member 2018-2019
     - institution: University of Texas at Austin – Planet Texas 2050
       link: https://bridgingbarriers.utexas.edu/
-      id: 5
+      id: 7
       role: Planet Texas 2050 Technical Advisory Council
     - institution: National Cooperative Highway Research Program
       link: http://www.trb.org/NCHRP/NCHRP.aspx
-      id: 6
+      id: 8
       role: Panel chair SHRP2 C46. Panel member NCHRP 08-89.
     - institution: Institute of Transportation Engineers
       link: http://www.ite.org
-      id: 7
+      id: 9
       role: Former board member (Washington Area Director) in Washington DC Region.
     - institution: Technical Advisory Committees
-      id: 8
-      role: Various projects for Caltrans, FTA, UC Davis, GTFS-Ride etc.
-    - institution: Interoperable Transit Data Consortium
-      link: https://itdconsortium.org/
-      id: 9
-      role: Affiliate.
+      id: 10
+      role: Various projects for Caltrans, FTA, UC Davis, etc.
   presentations:
     - title: "Technology Transfer in Government. Who has the torch?"
       venue: PacTrans Conference. Seattle, WA. 2017.
@@ -153,3 +155,7 @@ people:
       venue: Interoperable Transit Data Consortium. New York, NY. October 2017
       link: https://docs.google.com/presentation/d/1ZCO2Zlsz5FD_scvgwVMlSxsAKtEidjc9d0bV41VcGnw/edit?usp=drive_web
       id: 2
+    - title: "Open Source Governance for Zephyr Foundation Projects"
+      venue: TRB Planning Applications Conference Portland, OR. June 2019
+      link: https://docs.google.com/presentation/d/15S7sYwJI4yHWixPzJm2NggyAQyLo_KDzBAilh16DB4M/edit#slide=id.p1
+      id: 3
