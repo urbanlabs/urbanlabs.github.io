@@ -46,7 +46,7 @@ people:
       about: Extensive experience in policy-sensitive analysis of issues related to congested urban systems such as transit crowding,
              transit reliability, congested traffic flow, pedestrian travel choices, bicycle travel choices, parking choice,
              active transportation, GHG emissions, transportation equity & travel demand management strategies.
-    - category: Project Management
+    - category: Technical Project Management
       id: 7
       about: Research projects, planning studies, & policy analyses
     - category: Strategic planning for analysis teams
@@ -111,7 +111,7 @@ people:
     - institution: Zephyr Foundation
       link: http://zephyrtransport.org
       id: 1
-      role: Co-founder; Workforce Development Committee.
+      role: Co-founder; Workforce Development Committee; Learning session lead.
     - institution: Transportation Research Board
       link: http://www.trb.org
       id: 2
@@ -119,32 +119,40 @@ people:
             Research coordinator for ADB50.
             Organizing Committee for Innovations in Travel Modeling Conference (2006-2016).
             Organizing Committee for Conference on Planning Applications (2009-present).
-    - institution: 2019 Innovations in Travel Modeling Conference in Seattle
+    - institution: American Public Transportation Association (APTA)
+      link: http://apta.org
+      id: 3
+      role: 2021 Sound Transit Peer Review 
+    - institution: Travel Model Improvement Program (TMIP) program for FHWA
+      link: tmiponline.org
+      id: 4 
+      role: Peer reviews for Maricopa Association of Governments (MAG), the Phoenix MPO; Monterey Bay Association of Governments (AMBAG); Thurston County, the Olympia WA MPO.  
+    - institution: 2019 Innovations in Travel Modeling Conference in Seattle (Cancelled)
       link: http://itmconference.com
-      id: 4
+      id: 5
       role: Conference Co-Chair
     - institution: Rocky Mountain Institute
       link: http://www.rmi.org
-      id: 5
+      id: 6
       role: Trustee.
     - institution: California Integrated Travel Project 
       link: http://www.californiaintegratedtravel.com/
-      id: 6
+      id: 7
       role: Steering Committee Member 2018-2019
     - institution: University of Texas at Austin – Planet Texas 2050
       link: https://bridgingbarriers.utexas.edu/
-      id: 7
+      id: 8
       role: Planet Texas 2050 Technical Advisory Council
     - institution: National Cooperative Highway Research Program
       link: http://www.trb.org/NCHRP/NCHRP.aspx
-      id: 8
+      id: 9
       role: Panel chair SHRP2 C46. Panel member NCHRP 08-89.
     - institution: Institute of Transportation Engineers
       link: http://www.ite.org
-      id: 9
+      id: 10
       role: Former board member (Washington Area Director) in Washington DC Region.
     - institution: Technical Advisory Committees
-      id: 10
+      id: 11
       role: Various projects for Caltrans, FTA, UC Davis, etc.
   presentations:
     - title: "Technology Transfer in Government. Who has the torch?"
