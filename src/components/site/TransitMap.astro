@@ -1,0 +1,76 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  section: {
+    title: string;
+    style?: "kraft" | "chalkboard";
+    stops: { title: string; icon: "voices" | "data" | "civic" | "walk" | "bus" | "peaks"; description: string }[];
+  };
+}
+const { section } = Astro.props;
+const board = section.style === "chalkboard";
+// kraft: blue crayon on construction paper. chalkboard: white felt marker on dark green.
+const t = board
+  ? { bg: "bg-meadow-dark text-white", line: "#ffffff", streak: "", hFilter: "url(#ul-felt-h)", vFilter: "url(#ul-felt-v)", ring: "#ffffff", fill: "var(--meadow-dark)", icon: "text-white", body: "text-meadow-light" }
+  : { bg: "paper-kraft", line: "var(--line-color)", streak: "var(--line-streak)", hFilter: "url(#ul-crayon-h)", vFilter: "url(#ul-crayon-v)", ring: "var(--ink)", fill: "var(--kraft)", icon: "text-ink", body: "text-ink-soft" };
+---
+
+<!--
+  "The world we're working toward" as a crayon transit map on construction paper.
+  Phones: the line runs down the left. lg and up: one straight line across with
+  stops alternating below/above it.
+-->
+<section id="world" aria-labelledby="world-heading" class:list={[t.bg, "relative overflow-hidden"]}>
+  <div class="mx-auto max-w-[1180px] px-5 pt-14 pb-10 sm:px-7">
+    <h2 id="world-heading" class="m-0 mb-8 text-[clamp(36px,4.4vw,58px)] leading-[1.05] font-bold tracking-[-0.01em] lg:mb-2">
+      {section.title}
+    </h2>
+
+    <div class="relative">
+      <!-- horizontal line (lg+) -->
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        viewBox="0 0 1000 40"
+        preserveAspectRatio="none"
+        class="absolute -inset-x-7 top-[214px] hidden h-10 w-[calc(100%+56px)] overflow-visible lg:block"
+      >
+        <path d="M0 20 L1000 20" stroke={t.line} stroke-width={board ? 16 : 22} stroke-linecap="round" vector-effect="non-scaling-stroke" filter={t.hFilter} />
+        {t.streak && <path d="M0 16 L1000 16" stroke={t.streak} stroke-width="7" stroke-linecap="round" opacity="0.8" vector-effect="non-scaling-stroke" />}
+      </svg>
+      <!-- vertical line (phones and tablets) -->
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        viewBox="0 0 40 1000"
+        preserveAspectRatio="none"
+        class="absolute top-6 bottom-6 left-[14px] w-10 overflow-visible lg:hidden"
+      >
+        <path d="M20 0 L20 1000" stroke={t.line} stroke-width={board ? 14 : 18} stroke-linecap="round" vector-effect="non-scaling-stroke" filter={t.vFilter} />
+      </svg>
+
+      <ul class="relative m-0 list-none p-0 pl-16 lg:grid lg:grid-cols-6 lg:gap-x-5 lg:pl-0">
+        {section.stops.map((stop, i) => {
+          const above = i % 2 === 1;
+          return (
+            <li class="relative pb-8 last:pb-0 lg:grid lg:grid-rows-[210px_48px_210px] lg:pb-0">
+              <span aria-hidden="true" class="absolute top-0 -left-[54px] block h-12 w-12 lg:static lg:row-start-2">
+                <svg viewBox="0 0 48 48" width="48" height="48">
+                  <circle cx="24" cy="24" r="16" stroke={t.ring} stroke-width="6" fill={t.fill} filter="url(#ul-marker)" />
+                </svg>
+              </span>
+              <div class:list={["pt-1.5 lg:pt-0", above ? "lg:row-start-1 lg:self-end lg:pb-3" : "lg:row-start-3 lg:self-start lg:pt-3"]}>
+                <div class="mb-1.5 flex items-center gap-2.5">
+                  <Icon name={stop.icon} size={40} class:list={["flex-none", t.icon]} />
+                  <h3 class="m-0 text-[32px] leading-none font-extrabold lg:text-[34px]">{stop.title}</h3>
+                </div>
+                <p class:list={["m-0 text-[19px] leading-[1.35] lg:text-[18px]", t.body]}>{stop.description}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+</section>

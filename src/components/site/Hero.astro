@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import heroPhoto from "../../assets/photos/hero-seattle.jpg";
+
+interface Props {
+  hero: {
+    slogan: string[];
+    summary: string;
+    detail: string;
+    cta: { label: string; href: string };
+  };
+}
+const { hero } = Astro.props;
+const [first, second, last] = hero.slogan;
+---
+
+<section class="relative overflow-hidden bg-sky-deep text-white">
+  <Image
+    src={heroPhoto}
+    alt=""
+    widths={[800, 1400, 2000]}
+    sizes="100vw"
+    loading="eager"
+    class="absolute inset-0 h-full w-full object-cover object-[center_62%] opacity-40 mix-blend-luminosity"
+  />
+  <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,68,80,0.55)_0%,rgba(26,68,80,0.15)_45%,rgba(31,54,34,0.85)_100%)]"></div>
+  <div class="relative mx-auto flex max-w-[1160px] flex-wrap items-end gap-x-16 gap-y-8 px-5 pt-16 pb-16 sm:px-7 sm:pt-[72px] sm:pb-[88px]">
+    <h1 class="m-0 flex-none text-[clamp(52px,7vw,100px)] leading-[0.92] font-extrabold tracking-[-0.03em] text-white">
+      {first}<br />{second}<br /><span class="text-meadow-pale">{last}</span>
+    </h1>
+    <div class="flex max-w-[600px] min-w-0 flex-[1_1_340px] flex-col gap-5 pb-3 md:border-l-2 md:border-[rgba(199,227,203,0.45)] md:pl-12">
+      <p class="m-0 text-[clamp(28px,3vw,38px)] leading-[1.18] text-white">{hero.summary}</p>
+      <p class="m-0 font-sans text-[15px] text-sky-light">{hero.detail}</p>
+      <a
+        href={hero.cta.href}
+        class="inline-flex min-h-[50px] items-center self-start rounded-full bg-paper px-6 font-sans text-base font-bold text-sky-dark no-underline hover:bg-white hover:text-sky-dark"
+        >{hero.cta.label}</a
+      >
+    </div>
+  </div>
+</section>

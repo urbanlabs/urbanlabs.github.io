@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from "astro:content";
+
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import ProfilePage from "../../components/site/ProfilePage.astro";
+
+export async function getStaticPaths() {
+  const experiences = await getCollection("experiences");
+  return experiences.map((experience) => ({ params: { slug: experience.id }, props: { experience } }));
+}
+
+const { experience } = Astro.props;
+const { data } = experience;
+const { Content } = await render(experience);
+---
+
+<SiteLayout title={`${data.title} | UrbanLabs`} description={data.summary}>
+  <ProfilePage
+    back={{ label: "All experience", href: "/experience/" }}
+    title={data.title}
+    summary={data.summary}
+    whyItMatters={data.whyItMatters}
+    facts={[
+      { label: "Role", value: data.role },
+      { label: "Period", value: data.period },
+      { label: "Organizations", value: data.organizations },
+    ]}
+    links={data.links}
+  >
+    <Content />
+  </ProfilePage>
+</SiteLayout>

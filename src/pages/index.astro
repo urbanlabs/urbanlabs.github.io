@@ -1,0 +1,39 @@
+---
+import { getEntry } from "astro:content";
+
+import SiteLayout from "../layouts/SiteLayout.astro";
+import Hero from "../components/site/Hero.astro";
+import NameSection from "../components/site/NameSection.astro";
+import TransitMap from "../components/site/TransitMap.astro";
+import HowWeHelp from "../components/site/HowWeHelp.astro";
+import HandsOn from "../components/site/HandsOn.astro";
+import Organizations from "../components/site/Organizations.astro";
+import About from "../components/site/About.astro";
+
+import * as HeroContent from "../content/home/hero.mdx";
+import * as NameContent from "../content/home/background.mdx";
+import * as VisionContent from "../content/home/vision.mdx";
+import * as ServicesContent from "../content/home/services.mdx";
+import * as CredibilityContent from "../content/home/credibility.mdx";
+import * as AboutContent from "../content/home/about.mdx";
+
+const hero = HeroContent.frontmatter as any;
+const clients = await getEntry("clients", "home");
+if (!clients) throw new Error("Missing src/content/clients/home.yaml");
+---
+
+<SiteLayout title={hero.seo.title} description={hero.seo.description}>
+  <Hero hero={hero} />
+  <div class="page-width">
+    <NameSection section={NameContent.frontmatter as any} content={NameContent.Content} />
+  </div>
+  <TransitMap section={VisionContent.frontmatter as any} />
+  <div class="page-width">
+    <HowWeHelp section={ServicesContent.frontmatter as any} />
+  </div>
+  <HandsOn section={CredibilityContent.frontmatter as any} />
+  <div class="page-width">
+    <Organizations clients={clients.data} />
+    <About section={AboutContent.frontmatter as any} content={AboutContent.Content} />
+  </div>
+</SiteLayout>

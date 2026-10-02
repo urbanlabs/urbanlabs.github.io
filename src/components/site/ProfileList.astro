@@ -1,0 +1,27 @@
+---
+/* Index of project or experience profiles, as white cards in the homepage "How we help" style. */
+
+interface Props {
+  title: string;
+  intro: string;
+  items: { href: string; title: string; meta: string; summary: string }[];
+}
+const { title, intro, items } = Astro.props;
+---
+
+<section class="page-width pt-14 pb-20" aria-labelledby="list-heading">
+  <h1 id="list-heading" class="page-title">{title}</h1>
+  <p class="lead mt-5">{intro}</p>
+
+  <ul class="m-0 mt-12 grid list-none gap-8 p-0 md:grid-cols-2">
+    {items.map((item) => (
+      <li class="border border-[var(--card-border)] bg-white px-7 pt-[26px] pb-6 shadow-[var(--shadow-soft)]">
+        <h2 class="-mx-7 my-0 border-b border-[var(--card-red-rule)] px-7 pb-3 text-[27px] leading-tight font-bold">
+          <a href={item.href} class="text-ink no-underline hover:text-sky-deep hover:underline">{item.title}</a>
+        </h2>
+        <p class="m-0 mt-4 font-sans text-sm font-semibold text-meadow-deep">{item.meta}</p>
+        <p class="m-0 mt-3 text-ink-soft">{item.summary}</p>
+      </li>
+    ))}
+  </ul>
+</section>

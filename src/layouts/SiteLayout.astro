@@ -1,0 +1,23 @@
+---
+/* Every page: header, dot-grid paper, the contact band and the back-to-top button. */
+import BaseLayout from "./BaseLayout.astro";
+import SiteHeader from "../components/site/SiteHeader.astro";
+import Contact from "../components/site/Contact.astro";
+import BackToTop from "../components/site/BackToTop.astro";
+import * as ContactContent from "../content/home/contact.mdx";
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <SiteHeader />
+  <main id="main" class="paper-dots">
+    <slot />
+    <Contact section={ContactContent.frontmatter as any} content={ContactContent.Content} />
+  </main>
+  <BackToTop />
+</BaseLayout>

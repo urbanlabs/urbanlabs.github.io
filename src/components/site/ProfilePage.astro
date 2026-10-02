@@ -1,0 +1,45 @@
+---
+/* A single project or experience profile: story on the left, an index card of quick facts on the right. */
+
+interface Props {
+  back: { label: string; href: string };
+  title: string;
+  summary: string;
+  whyItMatters: string;
+  facts: { label: string; value: string | string[] }[];
+  links: { label: string; href: string }[];
+}
+const { back, title, summary, whyItMatters, facts, links } = Astro.props;
+---
+
+<article class="page-width pt-12 pb-20 sm:pt-14">
+  <a href={back.href} class="font-sans text-sm font-semibold">← {back.label}</a>
+  <h1 class="page-title mt-4 max-w-[900px]">{title}</h1>
+  <p class="lead mt-5">{summary}</p>
+
+  <!-- The facts card comes first on phones; on wide screens it moves to the right column -->
+  <div class="mt-12 grid items-start gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_340px]">
+    <div class="flex max-w-[400px] min-w-0 rotate-[0.5deg] flex-col gap-6 border border-[var(--card-border)] bg-white px-6 pt-5 pb-6 shadow-[var(--shadow-soft)] lg:col-start-2 lg:row-start-1">
+      <dl class="m-0 flex flex-col gap-4 font-sans text-base">
+        {facts.map((fact, i) => (
+          <div class:list={[i > 0 && "border-t border-border pt-3"]}>
+            <dt class="text-xs font-semibold tracking-[0.08em] text-meadow-deep uppercase">{fact.label}</dt>
+            <dd class="m-0 mt-1 text-ink-soft">{Array.isArray(fact.value) ? fact.value.join(" · ") : fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+      {links.length > 0 && (
+        <ul class="m-0 flex list-none flex-col gap-2 p-0 font-sans text-base font-semibold">
+          {links.map((link) => <li><a href={link.href}>{link.label} →</a></li>)}
+        </ul>
+      )}
+    </div>
+    <div class="min-w-0 lg:col-start-1 lg:row-start-1">
+      <div class="prose-body"><slot /></div>
+      <section class="mt-10 border-t-2 border-meadow-medium pt-5">
+        <h2 class="m-0 mb-2 text-[27px] font-bold">Why it matters</h2>
+        <p class="m-0 text-ink-soft">{whyItMatters}</p>
+      </section>
+    </div>
+  </div>
+</article>

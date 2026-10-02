@@ -1,0 +1,32 @@
+---
+interface Props {
+  clients: {
+    title: string;
+    intro: string;
+    organizations: { name: string; note?: string; href?: string }[];
+    others: string[];
+  };
+}
+const { clients } = Astro.props;
+const others = clients.others;
+---
+
+<section id="orgs" aria-labelledby="orgs-heading" class="pt-20 pb-16">
+  <div class="mb-9 flex flex-wrap items-end justify-between gap-x-10 gap-y-3">
+    <h2 id="orgs-heading" class="section-heading max-w-[780px]">{clients.title}</h2>
+    <p class="m-0 max-w-[440px] text-sky-deep italic">{clients.intro}</p>
+  </div>
+  <ul class="m-0 grid list-none gap-x-12 p-0 md:grid-cols-2 lg:grid-cols-3">
+    {clients.organizations.map((org) => (
+      <li class="border-t border-border py-4">
+        <strong class="block text-[25px] leading-tight">{org.name}</strong>
+        {org.note && <span class="text-ink-muted italic">{org.note}</span>}
+      </li>
+    ))}
+  </ul>
+  {others.length > 0 && (
+    <p class="m-0 border-t border-border pt-[18px] text-ink-soft">
+      …and others like <Fragment set:html={others.map((n) => `<strong>${n}</strong>`).join(", ")} /> and more.
+    </p>
+  )}
+</section>

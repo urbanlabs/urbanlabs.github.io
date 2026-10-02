@@ -1,0 +1,36 @@
+---
+/* A small floating "back to top" button. It works as a plain link without
+   JavaScript; the script only hides it until you've scrolled past the hero. */
+---
+
+<a
+  id="back-to-top"
+  href="#top"
+  aria-label="Back to top"
+  title="Back to top"
+  class="fixed right-4 bottom-4 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(28,43,49,0.15)] bg-[rgba(251,250,245,0.82)] text-ink shadow-[0_4px_14px_rgba(26,68,80,0.18)] backdrop-blur-sm transition-[opacity,visibility] duration-200 hover:bg-white hover:text-ink sm:right-6 sm:bottom-6"
+  data-hidden="true"
+>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+    <path d="M6 15l6-6 6 6" />
+  </svg>
+</a>
+
+<style>
+  #back-to-top[data-hidden="true"] {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  const button = document.getElementById("back-to-top");
+  if (button) {
+    const update = () => {
+      button.dataset.hidden = window.scrollY > 600 ? "false" : "true";
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+  }
+</script>

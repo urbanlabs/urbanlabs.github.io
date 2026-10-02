@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import ProfileList from "../../components/site/ProfileList.astro";
+
+const experiences = (await getCollection("experiences")).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const items = experiences.map(({ id, data }) => ({
+  href: `/experience/${id}/`,
+  title: data.title,
+  meta: `${data.role} · ${data.period}`,
+  summary: data.summary,
+}));
+---
+
+<SiteLayout
+  title="Experience | UrbanLabs"
+  description="Leadership, service, and field-building experience profiles from UrbanLabs."
+>
+  <ProfileList
+    title="Selected experience"
+    intro="Institution-building, community leadership and field-shaping work that explains how UrbanLabs approaches public-interest technology."
+    items={items}
+  />
+</SiteLayout>

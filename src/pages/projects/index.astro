@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import ProfileList from "../../components/site/ProfileList.astro";
+
+const projects = (await getCollection("projects")).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const items = projects.map(({ id, data }) => ({
+  href: `/projects/${id}/`,
+  title: data.title,
+  meta: data.role,
+  summary: data.summary,
+}));
+---
+
+<SiteLayout title="Projects | UrbanLabs" description="Selected UrbanLabs project profiles.">
+  <ProfileList
+    title="Selected projects"
+    intro="Strategy, data, standards and procurement work with public agencies and the communities they serve."
+    items={items}
+  />
+</SiteLayout>
