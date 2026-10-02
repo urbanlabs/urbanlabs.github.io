@@ -82,15 +82,25 @@ a:hover {
 
 /* ---- Paper surfaces ---- */
 
-.paper-notebook {
+/* Page paper: a faint dot grid. Unlike ruled notebook lines it doesn't need
+   to line up with the text, so wrapping and font changes never look "off". */
+.paper-dots {
   background-color: var(--paper);
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 35px,
-    var(--paper-rule) 35px,
-    var(--paper-rule) 36px
-  );
+  background-image: radial-gradient(circle, rgba(44, 95, 111, 0.2) 1px, transparent 1.5px);
+  background-size: 24px 24px;
+  background-position: 12px 12px;
+}
+
+/* Alternative: engineering paper (fine green grid with a stronger line every 5 squares).
+   Swap the class on <main> in src/pages/index.astro to try it. */
+.paper-engineering {
+  background-color: #f8faf4;
+  background-image:
+    linear-gradient(rgba(58, 106, 69, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58, 106, 69, 0.13) 1px, transparent 1px),
+    linear-gradient(rgba(58, 106, 69, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58, 106, 69, 0.06) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
 }
 
 /* Construction paper: flat color plus fibre and grain drawn with SVG noise. */

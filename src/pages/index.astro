@@ -29,7 +29,7 @@ if (!clients) throw new Error("Missing src/content/clients/home.yaml");
 
 <BaseLayout title={hero.seo.title} description={hero.seo.description}>
   <SiteHeader />
-  <main id="main" class="paper-notebook">
+  <main id="main" class="paper-dots">
     <Hero hero={hero} />
     <div class="mx-auto max-w-[1120px] px-5 sm:px-7">
       <NameSection section={NameContent.frontmatter as any} content={NameContent.Content} />
