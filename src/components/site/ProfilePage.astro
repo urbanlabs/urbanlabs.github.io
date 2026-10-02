@@ -1,0 +1,52 @@
+---
+/* A single project or experience profile: story on the left, a pinned photo and quick facts on the right. */
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  back: { label: string; href: string };
+  title: string;
+  summary: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  whyItMatters: string;
+  facts: { label: string; value: string | string[] }[];
+  links: { label: string; href: string }[];
+}
+const { back, title, summary, image, imageAlt, whyItMatters, facts, links } = Astro.props;
+---
+
+<article class="page-width pt-12 pb-20 sm:pt-14">
+  <a href={back.href} class="font-sans text-sm font-semibold">← {back.label}</a>
+  <h1 class="page-title mt-4 max-w-[900px]">{title}</h1>
+  <p class="lead mt-5">{summary}</p>
+
+  <!-- Photo and facts come first on phones; on wide screens they move to the right column -->
+  <div class="mt-12 grid items-start gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_340px]">
+    <div class="flex max-w-[400px] min-w-0 flex-col gap-8 lg:col-start-2 lg:row-start-1">
+      <figure class="m-0 rotate-1 bg-white p-3.5 shadow-[var(--shadow-photo)]">
+        <Image src={image} alt={imageAlt} widths={[340, 680]} sizes="340px" class="block aspect-[4/3] h-auto w-full object-cover" />
+      </figure>
+      <dl class="m-0 flex flex-col gap-4 font-sans text-base">
+        {facts.map((fact) => (
+          <div class="border-t border-border pt-3">
+            <dt class="text-xs font-semibold tracking-[0.08em] text-meadow-deep uppercase">{fact.label}</dt>
+            <dd class="m-0 mt-1 text-ink-soft">{Array.isArray(fact.value) ? fact.value.join(" · ") : fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+      {links.length > 0 && (
+        <ul class="m-0 flex list-none flex-col gap-2 p-0 font-sans text-base font-semibold">
+          {links.map((link) => <li><a href={link.href}>{link.label} →</a></li>)}
+        </ul>
+      )}
+    </div>
+    <div class="min-w-0 lg:col-start-1 lg:row-start-1">
+      <div class="prose-body"><slot /></div>
+      <aside class="mt-10 border-t-2 border-meadow-medium pt-5">
+        <h2 class="m-0 mb-2 text-[27px] font-bold">Why it matters</h2>
+        <p class="m-0 text-ink-soft">{whyItMatters}</p>
+      </aside>
+    </div>
+  </div>
+</article>

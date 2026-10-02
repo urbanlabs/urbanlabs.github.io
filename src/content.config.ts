@@ -1,61 +1,29 @@
-import { defineCollection } from "astro:content";
+import { defineCollection, type SchemaContext } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-const people = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/people" }),
-  schema: z.object({
-    name: z.string(),
-    role: z.string(),
-    company: z.string(),
-    photo: z.string(),
-    intro: z.array(z.string()),
-    serviceApproach: z.array(z.string()),
-    socialLinks: z.array(
-      z.object({
-        label: z.string(),
-        href: z.string(),
-      }),
-    ),
-    skills: z.array(
-      z.object({
-        category: z.string(),
-        description: z.string(),
-      }),
-    ),
-    publications: z.array(
-      z.object({
-        title: z.string(),
-        href: z.string(),
-      }),
-    ),
-    presentations: z.array(
-      z.object({
-        title: z.string(),
-        venue: z.string(),
-        href: z.string(),
-      }),
-    ),
-  }),
-});
+const link = z.object({ label: z.string(), href: z.string() });
 
-const projects = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/projects" }),
-  schema: z.object({
+// Project and experience profiles share one shape; experiences add a period.
+const profile = ({ image }: SchemaContext) =>
+  z.object({
     title: z.string(),
     summary: z.string(),
     role: z.string(),
     whyItMatters: z.string(),
-    clients: z.array(z.string()),
-    image: z.string(),
+    image: image(),
     imageAlt: z.string(),
-    links: z.array(
-      z.object({
-        label: z.string(),
-        href: z.string(),
-      }),
-    ),
-  }),
+    links: z.array(link),
+  });
+
+const projects = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/projects" }),
+  schema: (ctx) => profile(ctx).extend({ clients: z.array(z.string()) }),
+});
+
+const experiences = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/experiences" }),
+  schema: (ctx) => profile(ctx).extend({ period: z.string(), organizations: z.array(z.string()) }),
 });
 
 const clients = defineCollection({
@@ -74,4 +42,4 @@ const clients = defineCollection({
   }),
 });
 
-export const collections = { people, projects, clients };
+export const collections = { projects, experiences, clients };

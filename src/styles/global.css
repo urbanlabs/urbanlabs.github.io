@@ -6,18 +6,6 @@
   --font-serif: "Crimson Pro", Georgia, "Times New Roman", serif;
   --font-hand: "Caveat", "Comic Neue", cursive;
 
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-sky-light: var(--sky-light);
   --color-sky-medium: var(--sky-medium);
@@ -34,50 +22,49 @@
   --color-ink-subtle: var(--ink-subtle);
   --color-paper: var(--paper);
   --color-kraft: var(--kraft);
-  --color-line: var(--line-color);
 }
 
 @layer base {
-html {
-  scroll-behavior: smooth;
-  overflow-x: clip;
-}
-
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-serif);
-  font-size: 21px;
-  line-height: 1.55;
-  overflow-x: clip;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-serif);
-}
-
-a {
-  color: var(--sky-deep);
-  text-underline-offset: 3px;
-}
-a:hover {
-  color: var(--sky-dark);
-}
-
-:focus-visible {
-  outline: 3px solid var(--sky-medium);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-@media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+    overflow-x: clip;
   }
-}
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 21px;
+    line-height: 1.55;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+  }
+
+  a {
+    color: var(--sky-deep);
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    color: var(--sky-dark);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--sky-medium);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
 
 /* ---- Paper surfaces ---- */
@@ -86,7 +73,11 @@ a:hover {
    to line up with the text, so wrapping and font changes never look "off". */
 .paper-dots {
   background-color: var(--paper);
-  background-image: radial-gradient(circle, rgba(44, 95, 111, 0.2) 1px, transparent 1.5px);
+  background-image: radial-gradient(
+    circle,
+    rgba(44, 95, 111, 0.2) 1px,
+    transparent 1.5px
+  );
   background-size: 24px 24px;
   background-position: 12px 12px;
 }
@@ -100,7 +91,11 @@ a:hover {
     linear-gradient(90deg, rgba(58, 106, 69, 0.13) 1px, transparent 1px),
     linear-gradient(rgba(58, 106, 69, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(58, 106, 69, 0.06) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-size:
+    100px 100px,
+    100px 100px,
+    20px 20px,
+    20px 20px;
 }
 
 /* Construction paper: flat color plus fibre and grain drawn with SVG noise. */
@@ -119,28 +114,33 @@ a:hover {
   background: linear-gradient(transparent 58%, rgba(95, 169, 109, 0.5) 58%);
 }
 
-/* ---- Legacy helpers still used by project and experience pages ---- */
+/* ---- Shared layout and type ---- */
 
-.section-shell {
-  @apply mx-auto w-full max-w-6xl px-5 py-16 sm:px-8;
+/* Content column used by every section */
+@utility page-width {
+  @apply mx-auto max-w-[1120px] px-5 sm:px-7;
 }
 
-.eyebrow {
-  @apply font-sans text-[0.75rem] font-semibold tracking-[0.08em] text-meadow-deep uppercase;
+/* h1 on inner pages */
+@utility page-title {
+  @apply m-0 text-[clamp(40px,5vw,64px)] leading-[1.02] font-extrabold tracking-[-0.02em];
 }
 
-.section-title {
-  @apply font-serif text-4xl leading-tight font-bold text-ink sm:text-5xl;
+@utility section-heading {
+  @apply m-0 text-[clamp(36px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.01em];
 }
 
-.section-copy {
-  @apply text-lg leading-8 text-ink-soft;
+/* Large intro sentence under a section heading */
+@utility lead {
+  @apply m-0 max-w-[920px] text-[clamp(26px,2.7vw,36px)] leading-[1.3];
 }
 
-.card {
-  @apply border border-[#d9dfd8] bg-card p-6 text-card-foreground shadow-[var(--shadow-soft)];
-}
-
-.grid-card {
-  @apply border border-[#d9dfd8] bg-white p-6 shadow-[var(--shadow-soft)];
+/* Long-form MDX body copy on profile pages */
+@utility prose-body {
+  & p {
+    margin: 0;
+  }
+  & p + p {
+    margin-top: 18px;
+  }
 }

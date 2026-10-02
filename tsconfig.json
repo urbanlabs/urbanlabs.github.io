@@ -1,14 +1,5 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "css",
-    "js",
-    "stylesheets",
-    "_includes",
-    "_layouts",
-    "pale-photon"
-  ]
+  "exclude": ["dist", "node_modules", "pale-photon"]
 }

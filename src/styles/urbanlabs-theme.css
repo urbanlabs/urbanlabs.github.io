@@ -1,7 +1,7 @@
 /* UrbanLabs design tokens
    Mirrors the UrbanLabs Design System (revised 2026-10-02): slate ink for text,
    Meadow Deep for secondary actions, AA-contrast muted text, plus the "paper"
-   surfaces used by the homepage (notebook paper and kraft construction paper). */
+   surfaces (dot-grid paper and kraft construction paper). */
 
 :root {
   /* Brand: Sky */
@@ -33,22 +33,10 @@
   --line-color: #3e7f99;
   --line-streak: #8fc9dd;
 
-  /* Semantic aliases */
-  --background: var(--paper);
-  --foreground: var(--ink);
-  --card: #ffffff;
-  --card-foreground: var(--ink);
-  --primary: var(--sky-deep);
-  --primary-foreground: #ffffff;
-  --secondary: var(--meadow-deep);
-  --secondary-foreground: #ffffff;
-  --muted: var(--meadow-light);
-  --muted-foreground: var(--meadow-deep);
-  --accent: var(--sky-light);
-  --accent-foreground: var(--sky-deep);
   --border: #c9d3d6;
-  --radius: 0.75rem;
+  --card-border: #d9dfd8;
 
   --shadow-soft: 0 6px 14px rgba(26, 68, 80, 0.08);
-  --shadow-photo: 0 14px 30px rgba(26, 68, 80, 0.16), 0 2px 4px rgba(26, 68, 80, 0.08);
+  --shadow-photo:
+    0 14px 30px rgba(26, 68, 80, 0.16), 0 2px 4px rgba(26, 68, 80, 0.08);
 }

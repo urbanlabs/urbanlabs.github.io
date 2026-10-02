@@ -19,8 +19,8 @@ const { section, content: Content } = Astro.props;
     </div>
     <span aria-hidden="true" class="absolute -top-3 left-[36%] h-7 w-[104px] rotate-[5deg] bg-[rgba(225,243,249,0.85)] shadow-[0_1px_2px_rgba(26,68,80,0.1)]"></span>
   </figure>
-  <div class="min-w-0 flex-[1_1_480px] [&_p]:m-0 [&_p+p]:mt-[18px]">
-    <h2 id="about-heading" class="m-0 mb-[18px] text-[clamp(36px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.01em]">{section.title}</h2>
+  <div class="min-w-0 flex-[1_1_480px] prose-body">
+    <h2 id="about-heading" class="section-heading mb-[18px]">{section.title}</h2>
     <Content />
     {section.links.length > 0 && (
       <p class="mt-5 font-sans text-base">
