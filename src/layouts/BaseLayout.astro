@@ -2,27 +2,63 @@
 interface Props {
   description: string;
   title: string;
+  image?: string;
 }
 
-const { description, title } = Astro.props;
+const { description, title, image = "/img/hero-seattle.jpg" } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Pro:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Caveat:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-background text-foreground antialiased">
+  <body class="min-h-screen antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:font-sans focus:text-base"
+      >Skip to content</a
+    >
+    <!-- Hand-drawn texture filters, shared by every drawing on the page -->
+    <svg width="0" height="0" aria-hidden="true" focusable="false" style="position: absolute">
+      <defs>
+        <filter id="ul-marker" x="-15%" y="-15%" width="130%" height="130%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="4" result="wob" />
+          <feDisplacementMap in="SourceGraphic" in2="wob" scale="5" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <filter id="ul-crayon-h" filterUnits="userSpaceOnUse" x="-20" y="-20" width="1040" height="80">
+          <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="2" result="grit" />
+          <feColorMatrix in="grit" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.6" result="holes" />
+          <feComposite in="SourceGraphic" in2="holes" operator="in" result="gritty" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="9" result="wob2" />
+          <feDisplacementMap in="gritty" in2="wob2" scale="5" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <filter id="ul-crayon-v" filterUnits="userSpaceOnUse" x="-20" y="-20" width="80" height="1040">
+          <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="2" result="grit" />
+          <feColorMatrix in="grit" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.6" result="holes" />
+          <feComposite in="SourceGraphic" in2="holes" operator="in" />
+        </filter>
+      </defs>
+    </svg>
     <slot />
   </body>
 </html>

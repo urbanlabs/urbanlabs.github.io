@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import portrait from "../../assets/photos/elizabeth.png";
+
+interface Props {
+  section: { title: string; photoCaption: string; links: { label: string; href: string }[] };
+  content: any;
+}
+const { section, content: Content } = Astro.props;
+---
+
+<section id="about" aria-labelledby="about-heading" class="flex flex-wrap items-center gap-x-[72px] gap-y-12 border-t border-dashed border-[var(--paper-dash)] pt-12 pb-20">
+  <figure class="relative m-0 min-w-0 flex-[0_1_340px] -rotate-2">
+    <div class="relative bg-white p-3.5 pb-[58px] shadow-[var(--shadow-photo)]">
+      <div class="aspect-square overflow-hidden">
+        <Image src={portrait} alt="Elizabeth Sall, smiling outdoors" widths={[340, 680]} sizes="340px" class="block h-full w-full scale-[1.42] object-cover" />
+      </div>
+      <figcaption class="absolute right-6 bottom-3 left-6 font-hand text-[30px] font-medium text-sky-deep">{section.photoCaption}</figcaption>
+    </div>
+    <span aria-hidden="true" class="absolute -top-3 left-[36%] h-7 w-[104px] rotate-[5deg] bg-[rgba(225,243,249,0.85)] shadow-[0_1px_2px_rgba(26,68,80,0.1)]"></span>
+  </figure>
+  <div class="min-w-0 flex-[1_1_480px] [&_p]:m-0 [&_p+p]:mt-[18px]">
+    <h2 id="about-heading" class="m-0 mb-[18px] text-[clamp(36px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.01em]">{section.title}</h2>
+    <Content />
+    {section.links.length > 0 && (
+      <p class="mt-5 font-sans text-base">
+        {section.links.map((l) => <a href={l.href} class="font-semibold">{l.label}</a>)}
+      </p>
+    )}
+  </div>
+</section>

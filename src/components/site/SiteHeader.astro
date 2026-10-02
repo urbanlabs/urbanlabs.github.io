@@ -1,0 +1,22 @@
+---
+const links = [
+  { label: "How we help", href: "/#how" },
+  { label: "Hands-on work", href: "/#hands" },
+  { label: "Who we work with", href: "/#orgs" },
+  { label: "About", href: "/#about" },
+  { label: "Get in touch", href: "/#hello" },
+];
+---
+
+<header class="bg-sky-dark text-white">
+  <div class="mx-auto flex max-w-[1160px] flex-wrap items-center justify-between gap-x-7 gap-y-1 px-5 py-3 sm:px-7">
+    <a href="/" class="font-serif text-[28px] font-bold text-white no-underline hover:text-white">UrbanLabs</a>
+    <nav aria-label="Primary">
+      <ul class="flex flex-wrap gap-x-6 font-sans text-sm font-semibold">
+        {links.map((link) => (
+          <li><a href={link.href} class="inline-block py-3 text-sky-light no-underline hover:text-white hover:underline">{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

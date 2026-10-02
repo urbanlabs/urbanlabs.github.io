@@ -1,63 +1,55 @@
-/* UrbanLabs Design System - Core Variables */
+/* UrbanLabs design tokens
+   Mirrors the UrbanLabs Design System (revised 2026-10-02): slate ink for text,
+   Meadow Deep for secondary actions, AA-contrast muted text, plus the "paper"
+   surfaces used by the homepage (notebook paper and kraft construction paper). */
 
 :root {
+  /* Brand: Sky */
   --sky-light: #e1f3f9;
-  --sky-medium: #5fbfdf;
-  --sky-deep: #2c5f6f;
+  --sky-medium: #5fbfdf; /* fills and accents only, never under white text */
+  --sky-deep: #2c5f6f; /* primary */
   --sky-dark: #1a4450;
 
+  /* Brand: Meadow */
   --meadow-light: #e3f1e5;
-  --meadow-medium: #5fa96d;
+  --meadow-medium: #5fa96d; /* fills and accents only */
   --meadow-deep: #3a6a45;
   --meadow-dark: #1f3622;
+  --meadow-pale: #c7e3cb;
 
-  --background: #fcfcfa;
-  --foreground: #1f3622;
+  /* Ink (neutral slate) */
+  --ink: #1c2b31;
+  --ink-soft: #24363c;
+  --ink-muted: #4a5b61;
+  --ink-subtle: #5e7076;
+
+  /* Paper */
+  --paper: #fbfaf5;
+  --paper-rule: rgba(44, 95, 111, 0.07);
+  --paper-dash: #a9bcc2;
+  --kraft: #e6d9bf;
+  --card-red-rule: rgba(180, 69, 47, 0.35);
+
+  /* Transit line */
+  --line-green: #3a8a50;
+  --line-streak: #7cc08b;
+
+  /* Semantic aliases */
+  --background: var(--paper);
+  --foreground: var(--ink);
   --card: #ffffff;
-  --card-foreground: #1f3622;
-  --primary: #2c5f6f;
+  --card-foreground: var(--ink);
+  --primary: var(--sky-deep);
   --primary-foreground: #ffffff;
-  --secondary: #5fa96d;
+  --secondary: var(--meadow-deep);
   --secondary-foreground: #ffffff;
-  --muted: #e3f1e5;
-  --muted-foreground: #4a8756;
-  --accent: #e1f3f9;
-  --accent-foreground: #2c5f6f;
-  --border: #d4e5d7;
+  --muted: var(--meadow-light);
+  --muted-foreground: var(--meadow-deep);
+  --accent: var(--sky-light);
+  --accent-foreground: var(--sky-deep);
+  --border: #c9d3d6;
   --radius: 0.75rem;
 
-  --shadow-soft: 0 18px 45px rgba(26, 68, 80, 0.12);
-  --shadow-hero: 0 22px 44px rgba(0, 0, 0, 0.28);
-}
-
-.dark-blue {
-  --background: #143038;
-  --foreground: #f0f9fc;
-  --card: #1f4651;
-  --card-foreground: #f0f9fc;
-  --primary: #5fbfdf;
-  --primary-foreground: #143038;
-  --secondary: #75ba81;
-  --secondary-foreground: #143038;
-  --muted: #2c5f6f;
-  --muted-foreground: #94d5eb;
-  --accent: #2f5233;
-  --accent-foreground: #c7e3cb;
-  --border: #3a7282;
-}
-
-.dark-green {
-  --background: #1f3622;
-  --foreground: #e3f1e5;
-  --card: #2f5233;
-  --card-foreground: #e3f1e5;
-  --primary: #75ba81;
-  --primary-foreground: #1f3622;
-  --secondary: #5fbfdf;
-  --secondary-foreground: #143038;
-  --muted: #3a6a45;
-  --muted-foreground: #9fd0a7;
-  --accent: #2c5f6f;
-  --accent-foreground: #94d5eb;
-  --border: #4a8756;
+  --shadow-soft: 0 6px 14px rgba(26, 68, 80, 0.08);
+  --shadow-photo: 0 14px 30px rgba(26, 68, 80, 0.16), 0 2px 4px rgba(26, 68, 80, 0.08);
 }

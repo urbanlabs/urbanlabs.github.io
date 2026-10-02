@@ -1,0 +1,42 @@
+---
+interface Props {
+  section: {
+    title: string;
+    leadEmphasis: string;
+    lead: string;
+    tracks: { title: string; description: string; examples: { label: string; href: string }[] }[];
+  };
+}
+const { section } = Astro.props;
+const tilts = ["-0.6deg", "0.5deg", "0.4deg", "-0.5deg"];
+---
+
+<section id="how" aria-labelledby="how-heading" class="pt-16 pb-[72px]">
+  <div class="mt-6 mb-11 flex flex-col gap-4">
+    <h2 id="how-heading" class="m-0 text-[clamp(36px,3.8vw,52px)] font-bold tracking-[-0.01em]">{section.title}</h2>
+    <p class="m-0 max-w-[920px] text-[clamp(26px,2.7vw,36px)] leading-[1.3]">
+      <strong class="highlight font-bold">{section.leadEmphasis}</strong>
+      {section.lead}
+    </p>
+  </div>
+  <div class="grid gap-8 md:grid-cols-2">
+    {section.tracks.map((track, i) => (
+      <article
+        class="border border-[#d9dfd8] bg-white px-7 pt-[26px] pb-6 shadow-[var(--shadow-soft)] motion-safe:transition-transform"
+        style={`transform: rotate(${tilts[i % tilts.length]});`}
+      >
+        <h3 class="-mx-7 mt-0 mb-5 border-b border-[var(--card-red-rule)] px-7 pb-3 text-[27px] leading-tight font-bold">{track.title}</h3>
+        <p class="m-0">{track.description}</p>
+        <p class="m-0 mt-3.5 text-[18px] text-sky-deep italic">
+          e.g.{" "}
+          {track.examples.map((ex, j) => (
+            <>
+              <a href={ex.href}>{ex.label}</a>
+              {j < track.examples.length - 1 && " · "}
+            </>
+          ))}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>

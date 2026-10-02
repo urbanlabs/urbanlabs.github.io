@@ -1,46 +1,31 @@
-eyebrow: Trusted by
-title: Organizations that treat UrbanLabs like part of the team.
-intro: >
-  Trust is part of the work. Elizabeth cares deeply about helping clients succeed in their
-  public missions, and that only works when she is trusted as a thoughtful partner rather than
-  an outside profit center. That trust is earned, protected fiercely, and never taken lightly.
+title: Organizations we've worked with
+intro: As part of the team, not an outside vendor. That trust is earned, protected fiercely and never taken lightly.
 organizations:
-  - name: California Integrated Travel Project (Cal-ITP)
+  - name: Cal-ITP
+    note: mobility data, traveler information policy
     href: https://calitp.org
-    related:
-      - label: Mobility services data
-        href: /projects/cal-itp-mobility-services-data/
-      - label: Traveler information policy
-        href: /projects/transit-traveler-information-policy/
-      - label: MDIP coalition
-        href: /projects/mobility-data-interoperability-principles/
   - name: Caltrans
+    note: SB743 expert panel, transit technology business case
     href: https://dot.ca.gov/
-    related:
-      - label: SB743 expert panel
-        href: /projects/caltrans-sb743-expert-panel/
-      - label: Transit technology business case
-        href: /projects/caltrans-transit-technology-business-case-analysis/
-  - name: Sound Transit
-    related:
-      - label: Innovation and technology strategic plan
-        href: /projects/sound-transit-peer-review/
+  - name: Metropolitan Transportation Commission (MTC)
+    note: model systems, network tools
+    href: https://mtc.ca.gov/
   - name: Ohio DOT
-    related:
-      - label: Zephyr Foundation
-        href: /experience/zephyr-foundation-ohio-dot/
-  - name: Metropolitan Council
-  - name: Metropolitan Transportation Commission
-  - name: San Francisco County Transportation Authority
-  - name: National Cooperative Highway Research Program (NCHRP)
-    href: https://apps.trb.org/cmsfeed/TRBNetProjectDisplay.asp?ProjectID=4186
-    related:
-      - label: N-CATT best practices
-        href: /projects/n-catt-mdip-best-practices/
-  - name: American Public Transportation Association
-    href: https://www.apta.com/
-  - name: Oregon DOT
-  - name: California Association for Coordinated Transportation
+    note: Zephyr Foundation
+  - name: SFCTA
+    note: former executive; models, data, policy analysis
+    href: https://www.sfcta.org/
+  - name: CalACT
+    note: California Association for Coordinated Transportation
     href: https://calact.org/
-  - name: University of California, Davis
-    href: https://www.ucdavis.edu/
+  - name: King County Metro
+    note: integrated services technology planning
+  - name: Metropolitan Council
+    note: network tools, Metro Transit software procurement
+    href: https://metrocouncil.org/
+  - name: N-CATT
+    note: data interoperability best practices
+others:
+  - APTA
+  - Oregon DOT
+  - UC Davis

@@ -3,7 +3,8 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Crimson Pro", Georgia, serif;
+  --font-serif: "Crimson Pro", Georgia, "Times New Roman", serif;
+  --font-hand: "Caveat", "Comic Neue", cursive;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -26,66 +27,110 @@
   --color-meadow-medium: var(--meadow-medium);
   --color-meadow-deep: var(--meadow-deep);
   --color-meadow-dark: var(--meadow-dark);
+  --color-meadow-pale: var(--meadow-pale);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-paper: var(--paper);
+  --color-kraft: var(--kraft);
+  --color-line-green: var(--line-green);
 }
 
+@layer base {
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
 }
 
 body {
-  background:
-    radial-gradient(circle at top left, rgba(225, 243, 249, 0.85), transparent 34%),
-    linear-gradient(180deg, #f7fbfc 0%, var(--background) 22%, #f6faf6 100%);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 21px;
+  line-height: 1.55;
   overflow-x: clip;
 }
 
-a {
-  color: inherit;
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
 }
 
+a {
+  color: var(--sky-deep);
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--sky-dark);
+}
+
+:focus-visible {
+  outline: 3px solid var(--sky-medium);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+}
+
+/* ---- Paper surfaces ---- */
+
+.paper-notebook {
+  background-color: var(--paper);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 35px,
+    var(--paper-rule) 35px,
+    var(--paper-rule) 36px
+  );
+}
+
+/* Construction paper: flat color plus fibre and grain drawn with SVG noise. */
+.paper-kraft {
+  background-color: var(--kraft);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.30  0 0 0 0 0.22  0 0 0 0 0.10  0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.12' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.22 -0.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+
+/* Highlighter stroke behind a phrase */
+.highlight {
+  background: linear-gradient(transparent 58%, rgba(95, 169, 109, 0.32) 58%);
+}
+.highlight-dark {
+  background: linear-gradient(transparent 58%, rgba(95, 169, 109, 0.5) 58%);
+}
+
+/* ---- Legacy helpers still used by project and experience pages ---- */
+
 .section-shell {
-  @apply mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:px-10;
+  @apply mx-auto w-full max-w-6xl px-5 py-16 sm:px-8;
 }
 
 .eyebrow {
-  @apply text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-primary/70;
+  @apply font-sans text-[0.75rem] font-semibold tracking-[0.08em] text-meadow-deep uppercase;
 }
 
 .section-title {
-  @apply font-sans text-3xl leading-tight font-semibold text-foreground sm:text-4xl;
+  @apply font-serif text-4xl leading-tight font-bold text-ink sm:text-5xl;
 }
 
 .section-copy {
-  @apply text-base leading-8 text-foreground/78;
+  @apply text-lg leading-8 text-ink-soft;
 }
 
 .card {
-  @apply rounded-[1.5rem] border border-border/90 bg-card p-6 text-card-foreground shadow-[var(--shadow-soft)];
-}
-
-.soft-panel {
-  @apply rounded-[1.75rem] border border-white/30 bg-white/55 shadow-[var(--shadow-soft)] backdrop-blur-sm;
-}
-
-.pill-button {
-  @apply inline-flex items-center gap-3 rounded-[1.4rem] px-6 py-4 text-lg font-semibold transition duration-200;
+  @apply border border-[#d9dfd8] bg-card p-6 text-card-foreground shadow-[var(--shadow-soft)];
 }
 
 .grid-card {
-  @apply rounded-[1.4rem] border border-border/80 bg-white/90 p-6 shadow-[var(--shadow-soft)];
-}
-
-.sky-gradient {
-  background: linear-gradient(135deg, #5fbfdf 0%, #e1f3f9 52%, #fcfcfa 100%);
-}
-
-.section-fade {
-  background: linear-gradient(to bottom, #e3f1e5 0%, #fcfcfa 100%);
-}
-
-.hero-shadow-text {
-  text-shadow: 0 10px 18px rgba(0, 0, 0, 0.34);
+  @apply border border-[#d9dfd8] bg-white p-6 shadow-[var(--shadow-soft)];
 }

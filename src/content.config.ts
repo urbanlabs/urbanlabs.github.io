@@ -61,15 +61,16 @@ const projects = defineCollection({
 const clients = defineCollection({
   loader: glob({ pattern: "**/*.{yaml,yml}", base: "./src/content/clients" }),
   schema: z.object({
-    eyebrow: z.string(),
     title: z.string(),
     intro: z.string(),
     organizations: z.array(
       z.object({
         name: z.string(),
+        note: z.string().optional(),
         href: z.string().optional(),
       }),
     ),
+    others: z.array(z.string()).default([]),
   }),
 });
 

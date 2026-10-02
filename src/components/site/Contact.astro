@@ -1,0 +1,21 @@
+---
+interface Props {
+  section: { title: string; email: string; location: string };
+  content: any;
+}
+const { section, content: Content } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<section id="hello" aria-labelledby="hello-heading" class="bg-meadow-medium text-meadow-dark">
+  <div class="mx-auto flex max-w-[1120px] flex-wrap items-end justify-between gap-x-12 gap-y-7 px-5 py-[72px] sm:px-7">
+    <div class="min-w-0 flex-[1_1_560px]">
+      <h2 id="hello-heading" class="m-0 text-[clamp(52px,7vw,96px)] leading-[0.95] font-extrabold tracking-[-0.03em] text-meadow-dark">{section.title}</h2>
+      <div class="mt-[18px] max-w-[560px] text-[24px] [&_p]:m-0"><Content /></div>
+    </div>
+    <div class="flex flex-col gap-1.5">
+      <a href={`mailto:${section.email}`} class="py-2 font-sans text-[22px] font-bold text-meadow-dark underline underline-offset-[6px] hover:text-black">{section.email}</a>
+      <span class="font-sans text-[15px] font-semibold">{section.location} · © {year} UrbanLabs LLC</span>
+    </div>
+  </div>
+</section>

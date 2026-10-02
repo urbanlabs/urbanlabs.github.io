@@ -1,0 +1,29 @@
+---
+interface Props {
+  section: {
+    heading: string;
+    definitions: { word: string; part: string; meaning: string }[];
+  };
+  content: any;
+}
+const { section, content: Content } = Astro.props;
+---
+
+<section id="why" aria-labelledby="why-heading" class="flex flex-wrap gap-x-16 gap-y-10 py-16 sm:py-[72px]">
+  <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-7">
+    <h2 id="why-heading" class="m-0 text-[22px] font-normal text-sky-deep italic">{section.heading}</h2>
+    <dl class="m-0 flex flex-col gap-7">
+      {section.definitions.map((d) => (
+        <div>
+          <dt class="m-0 text-[50px] leading-none font-bold">
+            {d.word} <span class="text-[22px] font-normal text-ink-subtle italic">{d.part}</span>
+          </dt>
+          <dd class="m-0 mt-1.5 text-[27px]">{d.meaning}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+  <div class="min-w-0 flex-[1_1_460px] text-[24px] [&_p]:m-0 [&_p+p]:mt-[18px]">
+    <Content />
+  </div>
+</section>
