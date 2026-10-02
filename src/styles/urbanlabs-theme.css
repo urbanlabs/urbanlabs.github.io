@@ -1,0 +1,63 @@
+/* UrbanLabs Design System - Core Variables */
+
+:root {
+  --sky-light: #e1f3f9;
+  --sky-medium: #5fbfdf;
+  --sky-deep: #2c5f6f;
+  --sky-dark: #1a4450;
+
+  --meadow-light: #e3f1e5;
+  --meadow-medium: #5fa96d;
+  --meadow-deep: #3a6a45;
+  --meadow-dark: #1f3622;
+
+  --background: #fcfcfa;
+  --foreground: #1f3622;
+  --card: #ffffff;
+  --card-foreground: #1f3622;
+  --primary: #2c5f6f;
+  --primary-foreground: #ffffff;
+  --secondary: #5fa96d;
+  --secondary-foreground: #ffffff;
+  --muted: #e3f1e5;
+  --muted-foreground: #4a8756;
+  --accent: #e1f3f9;
+  --accent-foreground: #2c5f6f;
+  --border: #d4e5d7;
+  --radius: 0.75rem;
+
+  --shadow-soft: 0 18px 45px rgba(26, 68, 80, 0.12);
+  --shadow-hero: 0 22px 44px rgba(0, 0, 0, 0.28);
+}
+
+.dark-blue {
+  --background: #143038;
+  --foreground: #f0f9fc;
+  --card: #1f4651;
+  --card-foreground: #f0f9fc;
+  --primary: #5fbfdf;
+  --primary-foreground: #143038;
+  --secondary: #75ba81;
+  --secondary-foreground: #143038;
+  --muted: #2c5f6f;
+  --muted-foreground: #94d5eb;
+  --accent: #2f5233;
+  --accent-foreground: #c7e3cb;
+  --border: #3a7282;
+}
+
+.dark-green {
+  --background: #1f3622;
+  --foreground: #e3f1e5;
+  --card: #2f5233;
+  --card-foreground: #e3f1e5;
+  --primary: #75ba81;
+  --primary-foreground: #1f3622;
+  --secondary: #5fbfdf;
+  --secondary-foreground: #143038;
+  --muted: #3a6a45;
+  --muted-foreground: #9fd0a7;
+  --accent: #2c5f6f;
+  --accent-foreground: #94d5eb;
+  --border: #4a8756;
+}

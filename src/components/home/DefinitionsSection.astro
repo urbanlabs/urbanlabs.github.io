@@ -1,0 +1,48 @@
+---
+interface Props {
+  section: {
+    definitions: {
+      label: string;
+      description: string;
+      accent: "primary" | "secondary";
+    }[];
+  };
+  content: any;
+}
+
+const { section, content: Content } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-meadow-dark text-white">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(227,241,229,0.12),transparent_26%),radial-gradient(circle_at_82%_68%,rgba(95,191,223,0.1),transparent_28%),linear-gradient(180deg,rgba(24,43,27,0.98)_0%,rgba(39,74,46,0.92)_34%,rgba(66,112,74,0.82)_100%)]"></div>
+  <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-meadow-dark/70 via-meadow-dark/34 to-transparent"></div>
+  <div class="absolute -top-20 left-[8%] h-56 w-56 rounded-full bg-meadow-light/10 blur-3xl"></div>
+  <div class="absolute bottom-[-4rem] right-[12%] h-64 w-64 rounded-full bg-sky-light/8 blur-3xl"></div>
+  <div class="section-shell relative py-14 sm:py-16 lg:py-20">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,1.18fr)_minmax(19rem,0.82fr)] lg:gap-12 xl:gap-14">
+      <div class="max-w-3xl">
+        <div class="max-w-2xl space-y-5 text-[1.1rem] leading-8 font-medium text-white/88 sm:text-[1.18rem] sm:leading-9 lg:text-[1.28rem] lg:leading-10 lg:font-semibold [&_p]:mt-5 [&_p:first-child]:mt-0">
+          <Content />
+        </div>
+      </div>
+      <div class="lg:border-l lg:border-white/12 lg:pl-8 xl:pl-10">
+        <div class="space-y-5 pt-1">
+          {section.definitions.map((definition) => (
+            <div class:list={[
+              "flex flex-col gap-2 border-l-4 pl-5 sm:gap-3",
+              definition.accent === "primary" ? "border-sky-light/70" : "border-meadow-light/85",
+            ]}>
+              <span class:list={[
+                "font-serif text-3xl font-semibold sm:text-4xl",
+                definition.accent === "primary" ? "text-sky-light" : "text-meadow-light",
+              ]}>{definition.label}:</span>
+              <span class="text-xl font-semibold leading-8 text-white/95 sm:text-2xl">
+                {definition.description}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+---
+import { getCollection, getEntry } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroSection from "../components/home/HeroSection.astro";
+import DefinitionsSection from "../components/home/DefinitionsSection.astro";
+import VisionSection from "../components/home/VisionSection.astro";
+import ServicesSection from "../components/home/ServicesSection.astro";
+import TechnicalCredibilitySection from "../components/home/TechnicalCredibilitySection.astro";
+import ProfileSection from "../components/home/ProfileSection.astro";
+import ClientsSection from "../components/home/ClientsSection.astro";
+import ContactSection from "../components/home/ContactSection.astro";
+import "../styles/global.css";
+import * as HeroContent from "../content/home/hero.mdx";
+import * as BackgroundContent from "../content/home/background.mdx";
+import * as VisionContent from "../content/home/vision.mdx";
+import * as ServicesContent from "../content/home/services.mdx";
+import * as CredibilityContent from "../content/home/credibility.mdx";
+import * as ContactContent from "../content/home/contact.mdx";
+
+const hero = HeroContent.frontmatter as {
+  title: string;
+  slogan: string;
+  summary: string;
+  jumpCta: { label: string; href: string };
+};
+const seo = HeroContent.frontmatter.seo as { title: string; description: string };
+const background = BackgroundContent.frontmatter as {
+  definitions: { label: string; description: string; accent: "primary" | "secondary" }[];
+};
+const vision = VisionContent.frontmatter as {
+  eyebrow: string;
+  title: string;
+  vision: { title: string; icon: string; description: string }[];
+};
+const services = ServicesContent.frontmatter as {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  tracks: {
+    title: string;
+    description: string;
+    examples: {
+      label: string;
+      href: string;
+    }[];
+  }[];
+};
+const credibility = CredibilityContent.frontmatter as {
+  eyebrow: string;
+  title: string;
+  featured: {
+    headline: string;
+    kind: string;
+    href?: string;
+    summary?: string;
+    badges?: { label: string; href?: string; image: string; alt: string }[];
+  }[];
+};
+const contact = ContactContent.frontmatter as {
+  eyebrow: string;
+  title: string;
+  email: string;
+  location: string;
+};
+
+const profile = await getEntry("people", "elizabeth-sall");
+const clientEntries = await getCollection("clients");
+const clientReferences = clientEntries.find((entry) => entry.id === "home") ?? clientEntries[0];
+if (!profile) {
+  throw new Error("Expected people profile content is missing.");
+}
+
+if (!clientReferences) {
+  throw new Error("Expected client reference content is missing.");
+}
+---
+
+<BaseLayout title={seo.title} description={seo.description}>
+  <div
+    id="scroll-brand"
+    class="pointer-events-none fixed inset-x-0 top-0 z-50 border-b border-white/45 bg-background/88 opacity-0 shadow-[0_10px_30px_rgba(26,68,80,0.08)] backdrop-blur-md transition duration-300"
+  >
+    <div class="flex h-16 items-center px-5 sm:px-8 lg:px-10">
+      <a
+        href="#top"
+        class="pointer-events-auto text-2xl font-extrabold tracking-[-0.04em] text-primary"
+      >
+        UrbanLabs
+      </a>
+    </div>
+  </div>
+  <main>
+    <HeroSection hero={hero} />
+    <DefinitionsSection section={background} content={BackgroundContent.Content} />
+    <VisionSection section={vision} />
+    <ServicesSection section={services} />
+    <TechnicalCredibilitySection
+      section={credibility}
+      content={CredibilityContent.Content}
+    />
+    <ProfileSection eyebrow="Principal" profile={profile.data} />
+    <ClientsSection clients={clientReferences.data} />
+    <ContactSection section={contact} content={ContactContent.Content} />
+  </main>
+  <script>
+    const brand = document.getElementById("scroll-brand");
+    const hero = document.getElementById("top");
+
+    if (brand && hero) {
+      const updateBrand = () => {
+        const trigger = hero.getBoundingClientRect().bottom < 120;
+        brand.classList.toggle("opacity-0", !trigger);
+        brand.classList.toggle("pointer-events-none", !trigger);
+      };
+
+      updateBrand();
+      window.addEventListener("scroll", updateBrand, { passive: true });
+    }
+  </script>
+</BaseLayout>
