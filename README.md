@@ -52,7 +52,7 @@ Copy lives in Markdown/MDX under `src/content/`, separate from layout code:
 | `src/content/projects/*.mdx`    | Project profiles at `/projects/<file-name>/`                                                   |
 | `src/content/experiences/*.mdx` | Experience profiles at `/experience/<file-name>/`                                              |
 
-Project and experience frontmatter is validated by the schemas in `src/content.config.ts`. Their images live in `src/assets/profiles/` and are referenced by relative path (`image: ../../assets/profiles/ohio.png`), so Astro can resize and compress them at build time.
+Project and experience frontmatter is validated by the schemas in `src/content.config.ts`.
 
 The vision map in `src/content/home/vision.mdx` has two looks. Set `style: chalkboard` for white marker on dark green, or `style: kraft` for blue crayon on construction paper.
 

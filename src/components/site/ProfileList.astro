@@ -1,12 +1,10 @@
 ---
 /* Index of project or experience profiles, as white cards in the homepage "How we help" style. */
-import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
 
 interface Props {
   title: string;
   intro: string;
-  items: { href: string; title: string; meta: string; summary: string; image: ImageMetadata; imageAlt: string }[];
+  items: { href: string; title: string; meta: string; summary: string }[];
 }
 const { title, intro, items } = Astro.props;
 ---
@@ -17,15 +15,12 @@ const { title, intro, items } = Astro.props;
 
   <ul class="m-0 mt-12 grid list-none gap-8 p-0 md:grid-cols-2">
     {items.map((item) => (
-      <li class="flex flex-col border border-[var(--card-border)] bg-white shadow-[var(--shadow-soft)]">
-        <Image src={item.image} alt={item.imageAlt} widths={[540, 1080]} sizes="(min-width: 768px) 540px, 100vw" class="block h-48 w-full object-cover" />
-        <div class="px-7 pt-5 pb-6">
-          <h2 class="m-0 text-[27px] leading-tight font-bold">
-            <a href={item.href} class="text-ink no-underline hover:text-sky-deep hover:underline">{item.title}</a>
-          </h2>
-          <p class="m-0 mt-2 font-sans text-sm font-semibold text-meadow-deep">{item.meta}</p>
-          <p class="m-0 mt-3 text-ink-soft">{item.summary}</p>
-        </div>
+      <li class="border border-[var(--card-border)] bg-white px-7 pt-[26px] pb-6 shadow-[var(--shadow-soft)]">
+        <h2 class="-mx-7 my-0 border-b border-[var(--card-red-rule)] px-7 pb-3 text-[27px] leading-tight font-bold">
+          <a href={item.href} class="text-ink no-underline hover:text-sky-deep hover:underline">{item.title}</a>
+        </h2>
+        <p class="m-0 mt-4 font-sans text-sm font-semibold text-meadow-deep">{item.meta}</p>
+        <p class="m-0 mt-3 text-ink-soft">{item.summary}</p>
       </li>
     ))}
   </ul>
