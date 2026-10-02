@@ -29,9 +29,9 @@
   --kraft: #e6d9bf;
   --card-red-rule: rgba(180, 69, 47, 0.35);
 
-  /* Transit line */
-  --line-green: #3a8a50;
-  --line-streak: #7cc08b;
+  /* Transit line (blue crayon) */
+  --line-color: #3e7f99;
+  --line-streak: #8fc9dd;
 
   /* Semantic aliases */
   --background: var(--paper);

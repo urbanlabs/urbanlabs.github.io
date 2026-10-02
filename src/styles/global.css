@@ -34,7 +34,7 @@
   --color-ink-subtle: var(--ink-subtle);
   --color-paper: var(--paper);
   --color-kraft: var(--kraft);
-  --color-line-green: var(--line-green);
+  --color-line: var(--line-color);
 }
 
 @layer base {
