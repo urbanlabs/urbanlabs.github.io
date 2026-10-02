@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import portrait from "../../assets/photos/elizabeth.png";
+import portrait from "../../assets/photos/elizabeth.jpg";
 
 interface Props {
   section: { title: string; photoCaption: string; links: { label: string; href: string }[] };
@@ -13,7 +13,7 @@ const { section, content: Content } = Astro.props;
   <figure class="relative m-0 min-w-0 flex-[0_1_340px] -rotate-2">
     <div class="relative bg-white p-3.5 pb-[58px] shadow-[var(--shadow-photo)]">
       <div class="aspect-square overflow-hidden">
-        <Image src={portrait} alt="Elizabeth Sall, smiling outdoors" widths={[340, 680]} sizes="340px" class="block h-full w-full scale-[1.42] object-cover" />
+        <Image src={portrait} alt="Elizabeth Sall laughing on a mountain trail, with evergreens and a snowy Cascade peak behind her" widths={[340, 680]} sizes="340px" class="block h-full w-full object-cover" />
       </div>
       <figcaption class="absolute right-6 bottom-3 left-6 font-hand text-[30px] font-medium text-sky-deep">{section.photoCaption}</figcaption>
     </div>
